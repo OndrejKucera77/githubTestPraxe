@@ -1,0 +1,8 @@
+Ahoj!
+
+Básnička:
+Slunce je žluté,
+měsíc je temný,
+počasí klidné
+a git je pěkný.
+(když funguje)

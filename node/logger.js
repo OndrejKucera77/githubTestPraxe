@@ -1,10 +1,12 @@
-log(__filename);
-log(__dirname);
+const EvEm = require("events");
 
 let url = "http://mylogger.io/log";
 
-function log(zprava) {
-    console.log(zprava);
+class Logger extends EvEm {
+    log(zprava) {
+        console.log(zprava);
+        this.emit("messageLogged", {id: 1, uri: "chrome://dino"});
+    }
 }
 
-module.exports = log;
+module.exports = Logger;

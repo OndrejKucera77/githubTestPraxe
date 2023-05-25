@@ -1,8 +1,8 @@
 const EvEm = require("events");
 const emitter = new EvEm();
 
-emitter.addListener("messageLogged", function() {
-    console.log("Listener called");
+emitter.addListener("messageLogged", function(e) {
+    console.log("Listener called", e);
 });
 
-emitter.emit("messageLogged");
+emitter.emit("messageLogged", {id: 1, uri: "chrome://dino"});

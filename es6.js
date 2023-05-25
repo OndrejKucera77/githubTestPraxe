@@ -87,3 +87,17 @@ class Clovek {
 
 joe = new Clovek("Joe");
 josh = new Clovek("Josh");
+
+//---------------------------------------------------
+class Ucitel extends Clovek {
+    constructor(jmeno, titul) {
+        super(jmeno);
+        this.titul = titul;
+    }
+
+    nauc() {
+        console.log("Učím.");
+    }
+}
+
+const ucitel = new Ucitel("Jack", "inženýr");

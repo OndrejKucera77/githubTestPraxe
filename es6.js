@@ -73,3 +73,17 @@ const druhyO = {prace: "Instruktor"}
 
 const spojeneO = {...prvniO, ...druhyO, pozice: "Austrálie"};
 console.log(spojeneO);
+
+//---------------------------------------------------
+class Clovek {
+    constructor(jmeno) {
+        this.jmeno = jmeno;
+    }
+
+    mluv() {
+        console.log("Ahoj!");
+    }
+}
+
+joe = new Clovek("Joe");
+josh = new Clovek("Josh");

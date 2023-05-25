@@ -57,3 +57,19 @@ const stat = adresa.stat;
 const {ulice, mesto, stat: zeme} = adresa;
 
 console.log(ulice, mesto, zeme);
+
+//---------------------------------------------------
+const prvni = [1, 2,3 ];
+const druhe = [4, 5, 6];
+
+const spojene = [...prvni, "a", ...druhe, "b"];
+console.log(spojene);
+
+const klon = [...prvni];
+console.log(prvni, klon);
+
+const prvniO = {jmeno: "Mosh"}
+const druhyO = {prace: "Instruktor"}
+
+const spojeneO = {...prvniO, ...druhyO, pozice: "Austrálie"};
+console.log(spojeneO);

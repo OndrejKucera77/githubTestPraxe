@@ -1,9 +1,15 @@
 const http = require("http");
 
-const server = http.createServer();
+const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+        res.write("Ahoj světe!");
+        res.end();
+    }
 
-server.on("connection", function(socket) {
-    console.log("Nové připojení");
+    if (req.url === "/api/courses") {
+        res.write(JSON.stringify([1, 2, 3]));
+        res.end();
+    }
 });
 
 server.listen(3000);

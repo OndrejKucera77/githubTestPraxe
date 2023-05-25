@@ -40,3 +40,20 @@ clovek2.mluv();
 const barvy = ["červená", "zelená", "modrá"];
 const polozky = barvy.map(barva => `<li>${barva}</li>`);
 console.log(polozky);
+
+//---------------------------------------------------
+const adresa = {
+    ulice: "Průběžná 1720/3",
+    mesto: "Ostrava-Poruba",
+    stat: "Česká republika"
+}
+
+/*
+const ulice = adresa.ulice;
+const mesto = adresa.mesto;
+const stat = adresa.stat;
+*/
+
+const {ulice, mesto, stat: zeme} = adresa;
+
+console.log(ulice, mesto, zeme);

@@ -1,3 +1,3 @@
-const logger = require("./logger");
+const log = require("./logger");
 
-logger.log("Ahoj!");
+log("Ahoj!");

@@ -4,4 +4,4 @@ function log(zprava) {
     console.log(zprava);
 }
 
-module.exports.log = log;
+module.exports = log;

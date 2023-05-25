@@ -35,3 +35,8 @@ const clovek2 = {
 }
 
 clovek2.mluv();
+
+//---------------------------------------------------
+const barvy = ["červená", "zelená", "modrá"];
+const polozky = barvy.map(barva => `<li>${barva}</li>`);
+console.log(polozky);

@@ -5,12 +5,7 @@ import Product from "./Product/Product";
 
 import useStyles from "./styles";
 
-const products = [
-    {id: 1, name: "Shoes", description: "Running shoes", price: "100 Kč"},
-    {id: 2, name: "Macbook", description: "Apple macbook", price: "1299 Kč"}
-]
-
-const Products = function() {
+const Products = function({products}) {
     const classes = useStyles();
 
     return (

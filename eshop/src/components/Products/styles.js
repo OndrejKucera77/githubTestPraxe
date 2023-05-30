@@ -10,4 +10,7 @@ export default makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    grid: {
+        justifyContent: "left",
+    }
 }));

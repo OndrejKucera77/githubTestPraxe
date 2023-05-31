@@ -45,7 +45,7 @@ const Checkout = function({cart}) {
     const Form = function() {
         if (activeStep === 0)
             return <AddressForm checkoutToken={checkoutToken} next={next} />
-        return <PaymentForm />
+        return <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
     }
 
     return (

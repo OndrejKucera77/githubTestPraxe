@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 
 import {commerce} from "./lib/commerce";
-import {Products, Navbar, Cart} from "./components";
+import {Products, Navbar, Cart, Checkout} from "./components";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 const App = function() {
@@ -51,6 +51,9 @@ const App = function() {
                 } />
                 <Route exact path="/cart" element={
                     <Cart cart={cart} onUpdate={handleUpdateCartQuantity} onRemove={handleRemoveFromCart} onEmpty={handleEmptyCart} />
+                } />
+                <Route exact path="/checkout" element={
+                    <Checkout cart={cart} />
                 } />
             </Routes>
         </Router>

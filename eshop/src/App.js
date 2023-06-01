@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 const App = function() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
+    const [order, setOrder] = useState({});
+    const [errorMessage, setErrorMessage] = useState("");
 
     const fetchProducts = async function() {
         const {data} = await commerce.products.list();
@@ -18,23 +20,39 @@ const App = function() {
     }
 
     const handleAddToCart = async function(productId, quantity) {
-        const item = await commerce.cart.add(productId, quantity);
-        setCart(item);
+        const cart = await commerce.cart.add(productId, quantity);
+        setCart(cart);
     }
 
     const handleUpdateCartQuantity = async function(productId, quantity) {
-        const item = await commerce.cart.update(productId, {quantity});
-        setCart(item);
+        const cart = await commerce.cart.update(productId, {quantity});
+        setCart(cart);
     }
 
     const handleRemoveFromCart = async function(productId) {
-        const item = await commerce.cart.remove(productId);
-        setCart(item);
+        const cart = await commerce.cart.remove(productId);
+        setCart(cart);
     }
 
     const handleEmptyCart = async function() {
         const cart = await commerce.cart.empty();
         setCart(cart);
+    }
+
+    const refreshCart = async function() {
+        const newCart = await commerce.cart.refresh();
+        setCart(newCart);
+    }
+    
+    const handleCaptureCheckout = async function(checkoutTokenId, newOrder) {
+        try {
+            const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+            setOrder(incomingOrder);
+            refreshCart();
+        }
+        catch (error) {
+            setErrorMessage(error.data.error.message || error);
+        }
     }
 
     useEffect(function() {
@@ -53,7 +71,7 @@ const App = function() {
                     <Cart cart={cart} onUpdate={handleUpdateCartQuantity} onRemove={handleRemoveFromCart} onEmpty={handleEmptyCart} />
                 } />
                 <Route exact path="/checkout" element={
-                    <Checkout cart={cart} />
+                    <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
                 } />
             </Routes>
         </Router>
